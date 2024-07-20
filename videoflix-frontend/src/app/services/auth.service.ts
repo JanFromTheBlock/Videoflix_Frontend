@@ -18,4 +18,18 @@ export class AuthService {
     };
     return lastValueFrom(this.http.post(url, body));
   }
+
+  async ResponseRegister(username: string, email: string, password: string){
+    const url = environment.baseUrl + '/register/';
+    const body = {
+      "username": username,
+      "email": email,
+      "password": password,
+    };
+    let response = lastValueFrom(this.http.post(url, body));
+    return response
+  }
+
 }
+
+
