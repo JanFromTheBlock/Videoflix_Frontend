@@ -26,8 +26,7 @@ export class AuthService {
       "email": email,
       "password": password,
     };
-    let response = lastValueFrom(this.http.post(url, body));
-    return response
+    return lastValueFrom(this.http.post(url, body));
   }
 
 }
