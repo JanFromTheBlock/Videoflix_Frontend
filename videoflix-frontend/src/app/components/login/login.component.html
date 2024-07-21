@@ -1,5 +1,9 @@
 <form (ngSubmit)="login()">
   <input type="text" name="username" [(ngModel)]="username" required>
-  <input type="password" name="password" [(ngModel)]="password" required>
+  <input [type]="show ? 'text' : 'password'" name="password" [(ngModel)]="password" required>
+  <div (click)="showPassword()">{{show ? 'Hide' : 'Show'}}</div>
   <button>Login</button>
 </form>
+
+<div>Already Signed In?</div>
+<button (click)="navigateToRegistration()">Sign Up ></button>

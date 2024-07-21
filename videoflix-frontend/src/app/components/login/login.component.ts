@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 
 
@@ -14,8 +15,17 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent {
   username: string = '';
   password: string = '';
+  show: boolean = false;
 
-  constructor(private as: AuthService) {}
+  constructor(private as: AuthService, private router: Router) {}
+
+  navigateToRegistration(){
+    this.router.navigate(['/register'])
+  }
+
+  showPassword() {
+    this.show = !this.show;
+}
 
   async login() {
     try {

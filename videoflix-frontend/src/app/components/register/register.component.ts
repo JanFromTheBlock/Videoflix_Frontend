@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -14,8 +15,24 @@ export class RegisterComponent {
   email: string = '';
   password1: string = '';
   password2: string = '';
+  show1: boolean = false;
+  show2: boolean = false;
 
-  constructor(private as: AuthService) {}
+  constructor(private as: AuthService, private router: Router) {}
+
+  navigateToLogin(){
+    this.router.navigate(['/login'])
+  }
+
+  showPassword(passwordNumber: any) {
+    if (passwordNumber == 1) {
+      this.show1 = !this.show1;
+    }
+    if (passwordNumber == 2) {
+      this.show2 = !this.show2;
+    }
+
+}
 
   async registerUser(){
     if(this.password1 === this.password2){

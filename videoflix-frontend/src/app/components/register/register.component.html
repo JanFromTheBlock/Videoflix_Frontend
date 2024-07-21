@@ -3,8 +3,12 @@
   <form id="registerForm" (ngSubmit)="registerUser()">
     <input type="text" name="username" id="username" [(ngModel)]="username" autocomplete="off" required>
     <input type="email" name="email" id="email" [(ngModel)]="email" autocomplete="off" required>
-    <input type="password" name="password1" id="password1" [(ngModel)]="password1" autocomplete="off" required>
-    <input type="password" name="password2" id="password2" [(ngModel)]="password2" autocomplete="off" required>
+    <input [type]="show1 ? 'text' : 'password'" name="password1" id="password1" [(ngModel)]="password1" autocomplete="off" required>
+    <div (click)="showPassword(1)">{{show1 ? 'Hide' : 'Show'}}</div>
+    <input [type]="show2 ? 'text' : 'password'" name="password2" id="password2" [(ngModel)]="password2" autocomplete="off" required>
+    <div (click)="showPassword(2)">{{show2 ? 'Hide' : 'Show'}}</div>
     <button id="submitBtn">Register</button>
   </form>
+
+  <button (click)="navigateToLogin()">Login</button>
 </section>
