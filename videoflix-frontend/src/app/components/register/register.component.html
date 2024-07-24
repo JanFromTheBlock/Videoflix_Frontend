@@ -12,3 +12,6 @@
 
   <button (click)="navigateToLogin()">Login</button>
 </section>
+
+<div *ngIf="usernameError" class="error-message">{{ usernameError }}</div>
+<div *ngIf="emailError" class="error-message">{{ emailError }}</div>
