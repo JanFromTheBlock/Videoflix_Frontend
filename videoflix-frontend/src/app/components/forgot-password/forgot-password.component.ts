@@ -23,4 +23,21 @@ export class ForgotPasswordComponent {
     };
     return lastValueFrom(this.http.post(url, body));
   }
+
+  validateMailForm(){
+
+    const submitBtn: any = document.getElementById('submitBtnResetPw');
+    const emailInput = document.getElementById('resetmail') as HTMLInputElement;
+    let email = emailInput.value;
+    let allFieldsFilled = true;
+    if(!this.isValidEmail(email)){
+      allFieldsFilled = false
+    }
+    submitBtn.disabled = !allFieldsFilled;
+  }
+
+  isValidEmail(email: any) {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailPattern.test(email)
+}
 }

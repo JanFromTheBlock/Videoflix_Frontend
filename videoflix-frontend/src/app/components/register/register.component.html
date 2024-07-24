@@ -1,13 +1,13 @@
 <section>
   <h1>Registration</h1>
-  <form id="registerForm" (ngSubmit)="registerUser()">
-    <input type="text" name="username" id="username" [(ngModel)]="username" autocomplete="off" required>
-    <input type="email" name="email" id="email" [(ngModel)]="email" autocomplete="off" required>
-    <input [type]="show1 ? 'text' : 'password'" name="password1" id="password1" [(ngModel)]="password1" autocomplete="off" required>
+  <form id="register-form" (ngSubmit)="registerUser()">
+    <input (keyup)="validateRegisterForm()" type="text" name="username" id="new-username" [(ngModel)]="username" autocomplete="off" required>
+    <input (keyup)="validateRegisterForm()" type="email" name="email" id="new-email" [(ngModel)]="email" autocomplete="off" required>
+    <input (keyup)="validateRegisterForm()" [type]="show1 ? 'text' : 'password'" name="password1" id="password1" [(ngModel)]="password1" autocomplete="off" required>
     <div (click)="showPassword(1)">{{show1 ? 'Hide' : 'Show'}}</div>
-    <input [type]="show2 ? 'text' : 'password'" name="password2" id="password2" [(ngModel)]="password2" autocomplete="off" required>
+    <input (keyup)="validateRegisterForm()" [type]="show2 ? 'text' : 'password'" name="password2" id="password2" [(ngModel)]="password2" autocomplete="off" required>
     <div (click)="showPassword(2)">{{show2 ? 'Hide' : 'Show'}}</div>
-    <button id="submitBtn">Register</button>
+    <button id="button-register" disabled>Register</button>
   </form>
 
   <button (click)="navigateToLogin()">Login</button>

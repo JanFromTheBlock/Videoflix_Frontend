@@ -49,4 +49,30 @@ export class RegisterComponent {
       console.error('an error occured', e);
     }
   }
+
+  validateRegisterForm(){
+    const form: any = document.getElementById('register-form');
+    const submitBtn: any = document.getElementById('button-register');
+    const inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="password"]');
+    const emailInput = document.getElementById('new-email') as HTMLInputElement;
+    let email = emailInput.value;
+    const pw1Input = document.getElementById('password1') as HTMLInputElement;
+    let pw1 = pw1Input.value;
+    const pw2Input = document.getElementById('password2') as HTMLInputElement;
+    let pw2 = pw2Input.value;
+    let allFieldsFilled = true;
+
+    inputs.forEach((input: { value: string; }) => {
+        if (!input.value.trim() || !this.isValidEmail(email) || pw1 != pw2) {
+            allFieldsFilled = false;
+        }
+    });
+    submitBtn.disabled = !allFieldsFilled;
+  }
+
+  isValidEmail(email: any) {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailPattern.test(email)
+}
+
 }

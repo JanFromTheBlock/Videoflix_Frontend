@@ -3,8 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -19,17 +17,20 @@ export class LoginComponent {
 
   constructor(private as: AuthService, private router: Router) {}
 
-  navigateToRegistration(){
-    this.router.navigate(['/register'])
+  navigateToRegistration() {
+    this.router.navigate(['/register']);
   }
 
   showPassword() {
     this.show = !this.show;
-}
+  }
 
   async login() {
     try {
-      let resp = await this.as.loginWithUsernameAndPassword(this.username, this.password);
+      let resp = await this.as.loginWithUsernameAndPassword(
+        this.username,
+        this.password
+      );
       console.log(resp);
       //redirect
     } catch (e) {
@@ -38,5 +39,19 @@ export class LoginComponent {
     }
   }
 
+  validateLoginForm() {
+    const form: any = document.getElementById('login-form');
+    const submitBtn: any = document.getElementById('button-login');
+    const inputs = form.querySelectorAll(
+      'input[type="text"], input[type="password"]'
+    );
+    let allFieldsFilled = true;
 
+    inputs.forEach((input: { value: string }) => {
+      if (!input.value.trim()) {
+        allFieldsFilled = false;
+      }
+    });
+    submitBtn.disabled = !allFieldsFilled;
+  }
 }
