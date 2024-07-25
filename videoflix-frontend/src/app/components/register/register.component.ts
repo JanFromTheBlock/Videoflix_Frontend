@@ -28,6 +28,11 @@ export class RegisterComponent {
     this.router.navigate(['/login']);
   }
 
+
+  navigateToActivationPage(){
+    this.router.navigate(['activatemail'])
+  }
+
   showPassword(passwordNumber: any) {
     if (passwordNumber == 1) {
       this.show1 = !this.show1;

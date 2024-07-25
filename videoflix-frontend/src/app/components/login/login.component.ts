@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
@@ -14,6 +15,8 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
   show: boolean = false;
+  combiError: string = '';
+  serverError: string = '';
 
   constructor(private as: AuthService, private router: Router) {}
 
@@ -32,11 +35,19 @@ export class LoginComponent {
         this.password
       );
       console.log(resp);
-      //redirect
-    } catch (e) {
-      //show Error message
-      console.error(e);
+      this.navigateToLandingPage();
+    } catch (e: any) {
+      if (e.status === 400) {
+        this.combiError = "The combination of username and password is not correct";
+      } else {
+        this.serverError =
+          'An unexpected error occurred. Please try again later.';
+      }
     }
+  }
+
+  navigateToLandingPage(){
+    this.router.navigate([''])
   }
 
   validateLoginForm() {

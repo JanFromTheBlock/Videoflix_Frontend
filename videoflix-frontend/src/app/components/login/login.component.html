@@ -5,5 +5,8 @@
   <button id="button-login" disabled>Login</button>
 </form>
 
+<div *ngIf="combiError" class="error-message">{{ combiError }}</div>
+<div *ngIf="serverError" class="error-message">{{ serverError }}</div>
+
 <div>New to Videoflix?</div>
 <button (click)="navigateToRegistration()">Sign Up ></button>
