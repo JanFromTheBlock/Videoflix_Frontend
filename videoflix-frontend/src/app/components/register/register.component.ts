@@ -56,7 +56,7 @@ export class RegisterComponent {
         this.password1
       );
       console.log(response);
-      //REDIRECT
+      this.navigateToActivationPage();
     } catch (e: any) {
       if (e && e.error && e.error.errors) {
         if (e.error.errors.username) {

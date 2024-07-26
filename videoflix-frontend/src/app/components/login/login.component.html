@@ -1,12 +1,15 @@
-<form id="login-form" (ngSubmit)="login()">
-  <input (keyup)="validateLoginForm()" id="username" type="text" name="username" [(ngModel)]="username" required>
-  <input (keyup)="validateLoginForm()" id="password"  [type]="show ? 'text' : 'password'" name="password" [(ngModel)]="password" required>
-  <div (click)="showPassword()">{{show ? 'Hide' : 'Show'}}</div>
-  <button id="button-login" disabled>Login</button>
-</form>
+<section class="background-logged-out">
+  <form id="login-form" (ngSubmit)="login()">
+    <input (keyup)="validateLoginForm()" id="username" type="text" name="username" [(ngModel)]="username" required>
+    <input (keyup)="validateLoginForm()" id="password"  [type]="show ? 'text' : 'password'" name="password" [(ngModel)]="password" required>
+    <div (click)="showPassword()">{{show ? 'Hide' : 'Show'}}</div>
+    <button [ngClass]="{'button-disabled': buttondisabled, 'button-enabled': !buttondisabled}" id="button-login" disabled>Login</button>
+  </form>
 
-<div *ngIf="combiError" class="error-message">{{ combiError }}</div>
-<div *ngIf="serverError" class="error-message">{{ serverError }}</div>
+  <div *ngIf="combiError" class="error-message">{{ combiError }}</div>
+  <div *ngIf="serverError" class="error-message">{{ serverError }}</div>
 
-<div>New to Videoflix?</div>
-<button (click)="navigateToRegistration()">Sign Up ></button>
+  <div>New to Videoflix?</div>
+  <button class="button-enabled" (click)="navigateToRegistration()">Sign Up ></button>
+</section>
+

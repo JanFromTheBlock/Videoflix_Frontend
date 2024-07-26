@@ -17,6 +17,7 @@ export class LoginComponent {
   show: boolean = false;
   combiError: string = '';
   serverError: string = '';
+  buttondisabled: boolean = true
 
   constructor(private as: AuthService, private router: Router) {}
 
@@ -64,5 +65,6 @@ export class LoginComponent {
       }
     });
     submitBtn.disabled = !allFieldsFilled;
+    this.buttondisabled = !allFieldsFilled;
   }
 }
