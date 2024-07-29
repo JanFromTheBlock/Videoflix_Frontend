@@ -1,6 +1,14 @@
-
-<button (click)="navigateToLogin()">Login</button>
-
-<button (click)="navigateToRegistration()">Sign Up ></button>
-
-
+<section class="background-logged-out">
+  <div class="forms">
+    <h2>Movies, TV shows, and more</h2>
+    <h3>Watch whenever you want wherever you want</h3>
+    <div>
+      <a (click)="navigateToRegistration()">Sign Up</a> if you want to join
+      Videoflix
+    </div>
+    <div>
+      Do you have registered already? Please click
+      <a (click)="navigateToLogin()">here</a>
+    </div>
+  </div>
+</section>

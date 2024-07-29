@@ -12,14 +12,28 @@ import { CommonModule } from '@angular/common';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  username: string = '';
-  password: string = '';
+  username: any = '';
+  password: any = '';
   show: boolean = false;
   combiError: string = '';
   serverError: string = '';
   buttondisabled: boolean = true;
 
-  constructor(private as: AuthService, private router: Router) {}
+
+  constructor(private as: AuthService, private router: Router) {
+    this.RememberLoginData();
+  }
+
+  RememberLoginData() {
+    const user = localStorage.getItem('User');
+    const password = localStorage.getItem('password');
+
+    if (user !== null && password !== null) {
+        this.username = user
+        this.password = password;
+        this.buttondisabled = false;
+    }
+}
 
   navigateToRegistration() {
     this.router.navigate(['/register']);
@@ -29,13 +43,22 @@ export class LoginComponent {
     this.show = !this.show;
   }
 
+  rememberUser(){
+    this.as.rememberMe = !this.as.rememberMe
+  }
+
   async login() {
+    debugger
     try {
       let resp = await this.as.loginWithUsernameAndPassword(
         this.username,
         this.password
       );
       console.log(resp);
+      if(this.as.rememberMe){
+        localStorage.setItem('User', this.username);
+        localStorage.setItem('password', this.password);
+      }
       this.navigateToLandingPage();
     } catch (e: any) {
       if (e.status === 400) {

@@ -7,8 +7,12 @@
         <input (keyup)="validateLoginForm()" id="password"  [type]="show ? 'text' : 'password'" name="password" [(ngModel)]="password" required>
         <img src="../../../assets/img/eye.png" (click)="showPassword()">
       </div>
+      <div class="checkbox-div">
+        <input (click)="rememberUser()" class="checkbox" type="checkbox">
+        remember me
+      </div>
       <div class="button-div">
-        <button [ngClass]="{'button-disabled': buttondisabled, 'button-enabled': !buttondisabled}" id="button-login" disabled>Login</button>
+        <button [ngClass]="{'button-disabled': buttondisabled, 'button-enabled': !buttondisabled}" id="button-login">Login</button>
       </div>
        </form>
 

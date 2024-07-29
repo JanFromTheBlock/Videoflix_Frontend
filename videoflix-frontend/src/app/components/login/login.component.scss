@@ -1,0 +1,13 @@
+.checkbox{
+  width: unset !important;
+
+    &:hover{
+      border: 2px solid red;
+    }
+}
+
+.checkbox-div{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

@@ -7,6 +7,7 @@ import { lastValueFrom } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+  rememberMe: boolean = false;
 
   constructor(private http: HttpClient) { }
 
@@ -16,7 +17,9 @@ export class AuthService {
       "username": username,
       "password": password,
     };
-    return lastValueFrom(this.http.post(url, body));
+    let Response = lastValueFrom(this.http.post(url, body));
+    console.log(Response);
+
   }
 
   async ResponseRegister(username: string, email: string, password: string){
