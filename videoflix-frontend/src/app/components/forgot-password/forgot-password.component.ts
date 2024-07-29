@@ -16,6 +16,7 @@ export class ForgotPasswordComponent {
   email: string = "";
   serverError: string = '';
   emailError: string = ''
+  buttondisabled: boolean = true;
 
   constructor(private http: HttpClient) { }
 
@@ -56,6 +57,7 @@ export class ForgotPasswordComponent {
       allFieldsFilled = false
     }
     submitBtn.disabled = !allFieldsFilled;
+    this.buttondisabled = !allFieldsFilled;
   }
 
   isValidEmail(email: any) {
