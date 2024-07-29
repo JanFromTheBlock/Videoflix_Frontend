@@ -9,10 +9,17 @@ body{
   background-repeat: no-repeat;
 }
 
+.button-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 button{
   background-color: #141414;
   border-radius: 6px;
   padding: 10px 30px;
+  font-weight: 600;
 }
 
 .button-disabled{
@@ -31,4 +38,61 @@ button{
     cursor: pointer;
 
   }
+}
+
+input{
+  border: 1px solid red;
+  border-radius: 6px;
+  padding: 12px 24px;
+  width: 358px;
+}
+
+.passwords{
+  display: flex;
+  align-items: center;
+
+    img{
+      width: 22px;
+      margin-left: -25px;
+    }
+}
+
+section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1{
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  color: red;
+}
+
+.forms{
+    display: flex;
+    flex-direction: column;
+    max-width: 420px;
+    align-items: center;
+    gap: 32px;
+    background: white;
+    padding: 43px 56px;
+    border-radius: 48px;
+    border: 3px solid black;
+
+      form{
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+}
+
+a{
+  color: red;
+
+   &:hover{
+    cursor: pointer;
+   }
 }

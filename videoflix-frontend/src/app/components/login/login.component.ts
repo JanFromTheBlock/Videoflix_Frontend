@@ -17,7 +17,7 @@ export class LoginComponent {
   show: boolean = false;
   combiError: string = '';
   serverError: string = '';
-  buttondisabled: boolean = true
+  buttondisabled: boolean = true;
 
   constructor(private as: AuthService, private router: Router) {}
 
@@ -49,6 +49,10 @@ export class LoginComponent {
 
   navigateToLandingPage(){
     this.router.navigate([''])
+  }
+
+  navigateToForgotPassword(){
+    this.router.navigate(['/resetpw'])
   }
 
   validateLoginForm() {

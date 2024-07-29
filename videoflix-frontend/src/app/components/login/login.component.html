@@ -1,15 +1,24 @@
 <section class="background-logged-out">
-  <form id="login-form" (ngSubmit)="login()">
-    <input (keyup)="validateLoginForm()" id="username" type="text" name="username" [(ngModel)]="username" required>
-    <input (keyup)="validateLoginForm()" id="password"  [type]="show ? 'text' : 'password'" name="password" [(ngModel)]="password" required>
-    <div (click)="showPassword()">{{show ? 'Hide' : 'Show'}}</div>
-    <button [ngClass]="{'button-disabled': buttondisabled, 'button-enabled': !buttondisabled}" id="button-login" disabled>Login</button>
-  </form>
+  <div class="forms">
+    <h1>Login</h1>
+    <form id="login-form" (ngSubmit)="login()">
+      <input (keyup)="validateLoginForm()" id="username" type="text" name="username" [(ngModel)]="username" required>
+      <div class="passwords">
+        <input (keyup)="validateLoginForm()" id="password"  [type]="show ? 'text' : 'password'" name="password" [(ngModel)]="password" required>
+        <img src="../../../assets/img/eye.png" (click)="showPassword()">
+      </div>
+      <div class="button-div">
+        <button [ngClass]="{'button-disabled': buttondisabled, 'button-enabled': !buttondisabled}" id="button-login" disabled>Login</button>
+      </div>
+       </form>
 
-  <div *ngIf="combiError" class="error-message">{{ combiError }}</div>
-  <div *ngIf="serverError" class="error-message">{{ serverError }}</div>
+    <div *ngIf="combiError" class="error-message">{{ combiError }}</div>
+    <div *ngIf="serverError" class="error-message">{{ serverError }}</div>
+    <a (click)="navigateToForgotPassword()">Forgot password?</a>
+    <div>New to Videoflix?
+    <a (click)="navigateToRegistration()">Sign Up now</a>
+    </div>
+  </div>
 
-  <div>New to Videoflix?</div>
-  <button class="button-enabled" (click)="navigateToRegistration()">Sign Up ></button>
 </section>
 

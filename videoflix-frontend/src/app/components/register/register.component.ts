@@ -21,6 +21,7 @@ export class RegisterComponent {
   usernameError: string = '';
   emailError: string = '';
   serverError: string = '';
+  buttondisabled: boolean = true;
 
   constructor(private as: AuthService, private router: Router) {}
 
@@ -97,6 +98,7 @@ export class RegisterComponent {
       }
     });
     submitBtn.disabled = !allFieldsFilled;
+    this.buttondisabled = !allFieldsFilled;
   }
 
   isValidEmail(email: any) {

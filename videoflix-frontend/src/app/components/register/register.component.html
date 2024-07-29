@@ -1,17 +1,57 @@
-<section>
-  <h1>Registration</h1>
-  <form id="register-form" (ngSubmit)="registerUser()">
-    <input (keyup)="validateRegisterForm()" type="text" name="username" id="new-username" [(ngModel)]="username" autocomplete="off" required>
-    <input (keyup)="validateRegisterForm()" type="email" name="email" id="new-email" [(ngModel)]="email" autocomplete="off" required>
-    <input (keyup)="validateRegisterForm()" [type]="show1 ? 'text' : 'password'" name="password1" id="password1" [(ngModel)]="password1" autocomplete="off" required>
-    <div (click)="showPassword(1)">{{show1 ? 'Hide' : 'Show'}}</div>
-    <input (keyup)="validateRegisterForm()" [type]="show2 ? 'text' : 'password'" name="password2" id="password2" [(ngModel)]="password2" autocomplete="off" required>
-    <div (click)="showPassword(2)">{{show2 ? 'Hide' : 'Show'}}</div>
-    <button id="button-register" disabled>Register</button>
-  </form>
-
-  <button (click)="navigateToLogin()">Login</button>
+<section class="background-logged-out ">
+  <div class="forms">
+    <h1>Registration</h1>
+    <form id="register-form" (ngSubmit)="registerUser()">
+      <input
+        (keyup)="validateRegisterForm()"
+        type="text"
+        name="username"
+        id="new-username"
+        [(ngModel)]="username"
+        autocomplete="off"
+        required
+      />
+      <input
+        (keyup)="validateRegisterForm()"
+        type="email"
+        name="email"
+        id="new-email"
+        [(ngModel)]="email"
+        autocomplete="off"
+        required
+      />
+      <div class="passwords">
+        <input
+        (keyup)="validateRegisterForm()"
+        [type]="show1 ? 'text' : 'password'"
+        name="password1"
+        id="password1"
+        [(ngModel)]="password1"
+        autocomplete="off"
+        required
+      />
+      <img src="../../../assets/img/eye.png" (click)="showPassword(1)">
+      </div>
+      <div class="passwords">
+        <input
+        (keyup)="validateRegisterForm()"
+        [type]="show2 ? 'text' : 'password'"
+        name="password2"
+        id="password2"
+        [(ngModel)]="password2"
+        autocomplete="off"
+        required
+      />
+      <img src="../../../assets/img/eye.png" (click)="showPassword(2)">
+      </div>
+      <div class="button-div">
+        <button [ngClass]="{'button-disabled': buttondisabled, 'button-enabled': !buttondisabled}"  id="button-register" disabled>Register</button>
+      </div>
+    </form>
+    <div>
+      Do you have registered already? Please click <a (click)="navigateToLogin()">here</a> to log in.
+    </div>
+    <div *ngIf="usernameError" class="error-message">{{ usernameError }}</div>
+    <div *ngIf="emailError" class="error-message">{{ emailError }}</div>
+  </div>
 </section>
-
-<div *ngIf="usernameError" class="error-message">{{ usernameError }}</div>
-<div *ngIf="emailError" class="error-message">{{ emailError }}</div>
