@@ -50,11 +50,12 @@ export class LoginComponent {
   async login() {
     debugger
     try {
-      let resp = await this.as.loginWithUsernameAndPassword(
+      let resp: any = await this.as.loginWithUsernameAndPassword(
         this.username,
         this.password
       );
       console.log(resp);
+      localStorage.setItem('token', resp['token'])
       if(this.as.rememberMe){
         localStorage.setItem('User', this.username);
         localStorage.setItem('password', this.password);
