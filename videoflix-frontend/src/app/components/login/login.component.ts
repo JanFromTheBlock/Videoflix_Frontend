@@ -60,7 +60,7 @@ export class LoginComponent {
         localStorage.setItem('User', this.username);
         localStorage.setItem('password', this.password);
       }
-      this.navigateToLandingPage();
+      this.navigateToMainPage();
     } catch (e: any) {
       if (e.status === 400) {
         this.combiError = "The combination of username and password is not correct";
@@ -71,8 +71,8 @@ export class LoginComponent {
     }
   }
 
-  navigateToLandingPage(){
-    this.router.navigate([''])
+  navigateToMainPage(){
+    this.router.navigate(['/main'])
   }
 
   navigateToForgotPassword(){
