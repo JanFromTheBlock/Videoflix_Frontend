@@ -1,9 +1,25 @@
 <section>
-  <h1>Videos</h1>
-  <div class="genre" *ngFor="let video of videos">
-    <div class="thumbnail" style="background-image: url({{baseUrl}}{{video.thumbnail}});">
-      <span>{{video.title}}</span>
-    </div>
+  @if (videos.length >= 1) {
+    <h1>Videos</h1>
 
-  </div>
+    @for (genre of genres; track $index) {
+
+      @if (filterVideos(genre).length >= 1) {
+        <div class="genre">
+          <h2>{{genre}}</h2>
+          <div class="videos">
+            @for (video of filterVideos(genre); track $index) {
+              <div class="thumbnail" style="background-image: url({{baseUrl}}{{video.thumbnail}});">
+                <span>{{video.title}}</span>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    }
+
+  } @else {
+    <div>There are no videos at the moment</div>
+  }
+
 </section>

@@ -48,9 +48,6 @@
         <button [ngClass]="{'button-disabled': buttondisabled, 'button-enabled': !buttondisabled}"  id="button-register" disabled>Register</button>
       </div>
     </form>
-    <div>
-      Do you have registered already? Please click <a (click)="navigateToLogin()">here</a> to log in.
-    </div>
     <div *ngIf="usernameError" class="error-message">{{ usernameError }}</div>
     <div *ngIf="emailError" class="error-message">{{ emailError }}</div>
   </div>

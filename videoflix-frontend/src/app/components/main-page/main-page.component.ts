@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
 })
 export class MainPageComponent {
   videos: any = [];
+  genres = ["animals", "mountains", "sea"];
   baseUrl = environment.baseUrl;
 
   constructor(private router: Router, private http: HttpClient) {
@@ -29,5 +30,15 @@ export class MainPageComponent {
     } catch (error) {
       console.error('Error fetching videos:', error);
     }
+  }
+
+  filterVideos(genre: any){
+    let filteredVideos: any = [];
+    if (genre) {
+      filteredVideos = this.videos.filter((videos: { genre: any; }) => videos.genre === genre)
+    }else{
+      filteredVideos = []
+    }
+    return filteredVideos;
   }
 }

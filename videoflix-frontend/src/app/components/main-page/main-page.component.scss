@@ -1,10 +1,33 @@
-section{
+section {
   flex-direction: column;
+  background-color: #141414;
+  height: 100vh;
+  justify-content: flex-start;
+  padding-top: 144px;
 }
 
-.genre{
+.genre {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 96px;
+  margin-right: 96px;
+  margin-bottom: 48px;
+  gap: 16px;
+  width: 100%;
+  max-width: calc(100% - 192px);
+
+  h2 {
+    font-size: 22px;
+    color: white;
+    margin: 0;
+  }
+}
+
+.videos{
   display: flex;
   gap: 16px;
+
 }
 
 .thumbnail {
@@ -17,7 +40,7 @@ section{
   align-items: flex-end;
   justify-content: center;
 
-    span{
-      margin-bottom: 8px;
-    }
+  span {
+    margin-bottom: 8px;
+  }
 }
