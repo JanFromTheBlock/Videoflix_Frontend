@@ -5,6 +5,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ActivateYourMailComponent } from './components/activate-your-mail/activate-your-mail.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
+import { VideoplayerComponent } from './components/videoplayer/videoplayer.component';
 
 export const routes: Routes = [
   {path: '', component: LandingPageComponent },
@@ -13,4 +14,5 @@ export const routes: Routes = [
   {path: 'resetpw', component: ForgotPasswordComponent},
   {path: 'main', component: MainPageComponent},
   {path: 'activatemail', component: ActivateYourMailComponent},
+  {path: 'video/:id', component: VideoplayerComponent},
 ];
