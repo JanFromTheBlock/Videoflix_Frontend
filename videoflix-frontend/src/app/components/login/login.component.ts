@@ -48,7 +48,6 @@ export class LoginComponent {
   }
 
   async login() {
-    debugger
     try {
       let resp: any = await this.as.loginWithUsernameAndPassword(
         this.username,

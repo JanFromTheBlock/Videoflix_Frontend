@@ -48,4 +48,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   navigateToLogin() {
     this.router.navigate(['/login']);
   }
+
+  logOut(){
+    localStorage.removeItem('token');
+    this.navigateToLogin();
+  }
 }

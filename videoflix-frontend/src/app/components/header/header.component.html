@@ -4,6 +4,6 @@
   </div>
   <div>
     <button *ngIf="showLoginButton" class="button-enabled" (click)="navigateToLogin()">Login</button>
-    <button *ngIf="showLogoutButton" class="button-enabled">Logout</button>
+    <button (click)="logOut()" *ngIf="showLogoutButton" class="button-enabled">Logout</button>
   </div>
 </section>
