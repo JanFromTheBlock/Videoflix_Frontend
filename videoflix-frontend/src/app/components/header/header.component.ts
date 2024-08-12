@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   updateButtons(url: string) {
-    if (url === '/main') {
+    if (url === '/main' || url.match(/^\/video\/\d+$/)) {
       this.showLoginButton = false;
       this.showLogoutButton = true;
     } else if (url === '/register' || url === '/resetpw') {
