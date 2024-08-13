@@ -2,9 +2,9 @@
   <div class="forms">
     <h1>Login</h1>
     <form id="login-form" (ngSubmit)="login()">
-      <input (keyup)="validateLoginForm()" id="username" type="text" name="username" [(ngModel)]="username" required>
+      <input (keyup)="validateLoginForm()" id="username" type="text" name="username" [(ngModel)]="username" required placeholder="Enter your username">
       <div class="passwords">
-        <input (keyup)="validateLoginForm()" id="password"  [type]="show ? 'text' : 'password'" name="password" [(ngModel)]="password" required>
+        <input (keyup)="validateLoginForm()" id="password"  [type]="show ? 'text' : 'password'" name="password" [(ngModel)]="password" required placeholder="Enter your password">
         <img src="../../../assets/img/eye.png" (click)="showPassword()">
       </div>
       <div class="checkbox-div">

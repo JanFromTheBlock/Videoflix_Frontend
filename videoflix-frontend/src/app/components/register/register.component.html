@@ -10,6 +10,7 @@
         [(ngModel)]="username"
         autocomplete="off"
         required
+        placeholder="Choose a Username"
       />
       <input
         (keyup)="validateRegisterForm()"
@@ -19,6 +20,7 @@
         [(ngModel)]="email"
         autocomplete="off"
         required
+        placeholder="Enter your email"
       />
       <div class="passwords">
         <input
@@ -29,6 +31,7 @@
         [(ngModel)]="password1"
         autocomplete="off"
         required
+        placeholder="Choose a password"
       />
       <img src="../../../assets/img/eye.png" (click)="showPassword(1)">
       </div>
@@ -41,6 +44,7 @@
         [(ngModel)]="password2"
         autocomplete="off"
         required
+        placeholder="repeat your password"
       />
       <img src="../../../assets/img/eye.png" (click)="showPassword(2)">
       </div>

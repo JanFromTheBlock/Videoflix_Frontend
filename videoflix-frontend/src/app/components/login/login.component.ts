@@ -21,7 +21,6 @@ export class LoginComponent {
 
 
   constructor(private as: AuthService, private router: Router) {
-    debugger
     if (localStorage.getItem('LoggedIn') === 'true') {
       this.navigateToMainPage()
     }
