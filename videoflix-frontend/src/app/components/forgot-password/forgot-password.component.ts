@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment';
 import { catchError, lastValueFrom, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-password',
@@ -18,11 +19,12 @@ export class ForgotPasswordComponent {
   emailError: string = ''
   buttondisabled: boolean = true;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   registerUser(){
       this.Registration().then(response => {
         console.log("Email sent successfully.");
+        this.navigateToActivatePw();
       }).catch((e: any) => {
         if (e.status === 404) {
           this.emailError = "Email address not found.";
@@ -32,6 +34,10 @@ export class ForgotPasswordComponent {
           this.serverError = 'An unexpected error occurred. Please try again later.';
         }
       });
+  }
+
+  navigateToActivatePw(){
+    this.router.navigate(['/activate-new-pw']);
   }
 
   Registration(){

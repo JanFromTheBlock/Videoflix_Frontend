@@ -50,7 +50,13 @@ export class LoginComponent {
     this.as.rememberMe = !this.as.rememberMe
   }
 
+  hideErrors(){
+    this.combiError = '';
+    this.serverError = '';
+  }
+
   async login() {
+    this.hideErrors();
     try {
       let resp: any = await this.as.loginWithUsernameAndPassword(
         this.username,

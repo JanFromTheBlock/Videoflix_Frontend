@@ -6,6 +6,8 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { ActivateYourMailComponent } from './components/activate-your-mail/activate-your-mail.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { VideoplayerComponent } from './components/videoplayer/videoplayer.component';
+import { SuccesMailActivationComponent } from './components/succes-mail-activation/succes-mail-activation.component';
+import { ActivateNewPwComponent } from './components/activate-new-pw/activate-new-pw.component';
 
 export const routes: Routes = [
   {path: '', component: LandingPageComponent },
@@ -15,4 +17,6 @@ export const routes: Routes = [
   {path: 'main', component: MainPageComponent},
   {path: 'activatemail', component: ActivateYourMailComponent},
   {path: 'video/:id', component: VideoplayerComponent},
+  {path: 'register-succes', component: SuccesMailActivationComponent},
+  {path: 'activate-new-pw', component: ActivateNewPwComponent},
 ];

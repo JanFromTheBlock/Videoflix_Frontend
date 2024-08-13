@@ -45,8 +45,15 @@ export class RegisterComponent {
 
   async registerUser() {
     if (this.password1 === this.password2) {
+      this.hideErrors();
       await this.submitRegistration();
     }
+  }
+
+  hideErrors(){
+    this.usernameError = '';
+    this.emailError = '';
+    this.serverError = ''
   }
 
   async submitRegistration() {
