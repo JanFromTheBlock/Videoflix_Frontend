@@ -1,3 +1,4 @@
 <section>
-  <video controls preload="auto" src="{{baseUrl}}{{video.video_file}}"></video>
+  <video *ngIf="videoAvailable" controls preload="auto" src="{{baseUrl}}{{video.video_file}}"></video>
+  <div *ngIf="!videoAvailable">The requested video is not available</div>
 </section>

@@ -1,5 +1,8 @@
 section{
   padding-top: 144px;
+  height: calc(100vh - 144px);
+  align-items: baseline !important;
+
 }
 
 video{

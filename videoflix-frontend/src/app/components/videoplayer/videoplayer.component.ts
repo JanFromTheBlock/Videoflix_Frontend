@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class VideoplayerComponent {
   videoIdFromUrl: string | null = '';
+  videoAvailable: boolean = true;
   baseUrl = environment.baseUrl;
   video: any = {
     create_at: '',
@@ -43,8 +44,12 @@ export class VideoplayerComponent {
     const url = this.baseUrl + '/single_video?video_id=' + this.videoIdFromUrl;
     try {
       this.video = await lastValueFrom(this.http.get(url));
+      this.videoAvailable = true;
       console.log('video', this.video);
-    } catch (error) {
+    } catch (error: any) {
+      if (error.status === 400) {
+        this.videoAvailable = false;
+      }
       console.error('Error fetching videos:', error);
     }
   }
