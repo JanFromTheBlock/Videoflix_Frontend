@@ -51,6 +51,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   logOut(){
     localStorage.removeItem('token');
+    localStorage.setItem('LoggedIn', 'false');
     this.navigateToLogin();
   }
 }

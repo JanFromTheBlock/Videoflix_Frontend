@@ -21,6 +21,10 @@ export class LoginComponent {
 
 
   constructor(private as: AuthService, private router: Router) {
+    debugger
+    if (localStorage.getItem('LoggedIn') === 'true') {
+      this.navigateToMainPage()
+    }
     this.RememberLoginData();
   }
 
@@ -55,6 +59,7 @@ export class LoginComponent {
       );
       console.log(resp);
       localStorage.setItem('token', resp['token'])
+      localStorage.setItem('LoggedIn', 'true')
       if(this.as.rememberMe){
         localStorage.setItem('User', this.username);
         localStorage.setItem('password', this.password);
