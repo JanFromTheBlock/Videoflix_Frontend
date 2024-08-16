@@ -10,6 +10,8 @@ import { SuccesMailActivationComponent } from './components/succes-mail-activati
 import { ActivateNewPwComponent } from './components/activate-new-pw/activate-new-pw.component';
 import { ResetPwComponent } from './components/reset-pw/reset-pw.component';
 import { SuccessPwResetComponent } from './components/success-pw-reset/success-pw-reset.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { ImprintComponent } from './components/imprint/imprint.component';
 
 export const routes: Routes = [
   {path: '', component: LandingPageComponent },
@@ -23,4 +25,6 @@ export const routes: Routes = [
   {path: 'activate-new-pw', component: ActivateNewPwComponent},
   {path: 'reset-password/:uidb64/:mail', component: ResetPwComponent },
   {path: 'reset-succes', component: SuccessPwResetComponent},
+  {path: 'privacy-policy', component: PrivacyPolicyComponent},
+  {path: 'imprint', component: ImprintComponent},
 ];
