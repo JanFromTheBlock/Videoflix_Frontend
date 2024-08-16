@@ -1,0 +1,26 @@
+<section class="background-logged-out">
+  <div class="forms">
+    <h1>Set new Password</h1>
+    <form id="SetNewPwForm" (submit)="setNewPW()" >
+      <input type="mail" id="email_pw" name="email" value="{{ email }}" />
+      <input
+      (keyup)="validateResetForm()"
+        type="password"
+        id="new-pw1"
+        name="new_pw1"
+        placeholder="Enter your password"
+      />
+      <input
+      (keyup)="validateResetForm()"
+        type="password"
+        id="new-pw2"
+        name="new_pw2"
+        placeholder="Repeat Your name"
+      />
+      <div class="button-div">
+        <button [ngClass]="{'button-disabled': buttondisabled, 'button-enabled': !buttondisabled}" id="submitNewPw">Reset Password</button>
+      </div>
+    </form>
+    <div *ngIf="pwResetError" class="error-message">Something went wrong. Please try again.</div>
+  </div>
+</section>

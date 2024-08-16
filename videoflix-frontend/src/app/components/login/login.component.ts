@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent {
+export class LoginComponent implements AfterViewInit {
   username: any = '';
   password: any = '';
   show: boolean = false;
@@ -24,6 +24,9 @@ export class LoginComponent {
     if (localStorage.getItem('LoggedIn') === 'true') {
       this.navigateToMainPage()
     }
+  }
+
+  ngAfterViewInit() {
     this.RememberLoginData();
   }
 
@@ -35,6 +38,7 @@ export class LoginComponent {
         this.username = user
         this.password = password;
         this.buttondisabled = false;
+        document.getElementById("checkbox")?.click()
     }
 }
 
@@ -68,6 +72,9 @@ export class LoginComponent {
       if(this.as.rememberMe){
         localStorage.setItem('User', this.username);
         localStorage.setItem('password', this.password);
+      }else{
+        localStorage.removeItem('User');
+        localStorage.removeItem('password');
       }
       this.navigateToMainPage();
     } catch (e: any) {

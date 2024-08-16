@@ -1,0 +1,13 @@
+section {
+  flex-direction: column;
+  background-color: #141414;
+  height: calc(100vh - 144px);
+  justify-content: flex-start;
+  padding-top: 144px;
+
+  div{
+    color: red;
+    padding: 40px;
+    max-width: 600px;
+  }
+}
