@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (url === '/main' || url.match(/^\/video\/\d+$/)) {
       this.showLoginButton = false;
       this.showLogoutButton = true;
-    } else if (url === '/login' || url === '/') {
+    } else if (url === '/login' || url === '/' || url === '/privacy-policy' || url === '/imprint')  {
       this.showLoginButton = false;
       this.showLogoutButton = false;
     }else {
