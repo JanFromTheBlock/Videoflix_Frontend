@@ -49,6 +49,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.router.navigate(['/login']);
   }
 
+  navigateToMain() {
+    this.router.navigate(['/main']);
+  }
+
+  navigateToBase(){
+    this.router.navigate(['/']);
+  }
+
+  goHome(){
+    if (localStorage.getItem('LoggedIn') === 'true') {
+      this.navigateToMain();
+    }else{
+      this.navigateToBase();
+    }
+  }
+
   logOut(){
     localStorage.removeItem('token');
     localStorage.setItem('LoggedIn', 'false');
