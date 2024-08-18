@@ -1,6 +1,18 @@
 body{
   margin: 0;
+  font-family: "DM Sans", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+
 }
+
+//.dm-sans {
+  //font-family: "DM Sans", system-ui;
+  //font-optical-sizing: auto;
+  //font-weight: 400;
+  //font-style: normal;
+//}
 
 .background-logged-out {
   background-image: url("./assets/img/background_cinema.jpg");
