@@ -103,20 +103,12 @@ export class LoginComponent implements AfterViewInit {
     );
     let allFieldsFilled = true;
 
-    const passwordInput: any = document.getElementById('password');
-    const passwordValue = passwordInput.value.trim();
-    const passwordRegex = /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).{8,}$/;
-    const isPasswordValid = passwordRegex.test(passwordValue)
-
     inputs.forEach((input: { value: string }) => {
       if (!input.value.trim()) {
         allFieldsFilled = false;
       }
     });
 
-    if(!isPasswordValid){
-      allFieldsFilled = false
-    }
     submitBtn.disabled = !allFieldsFilled;
     this.buttondisabled = !allFieldsFilled;
   }
