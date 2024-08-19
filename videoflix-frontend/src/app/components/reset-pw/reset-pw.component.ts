@@ -66,10 +66,20 @@ export class ResetPwComponent {
     let pw1 = pw1Input.value;
     const pw2Input = document.getElementById('new-pw2') as HTMLInputElement;
     let pw2 = pw2Input.value;
+
+    const passwordInput: any = document.getElementById('new-pw1');
+    const passwordValue = passwordInput.value.trim();
+    const passwordRegex = /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).{8,}$/;
+    const isPasswordValid = passwordRegex.test(passwordValue);
+
     let allFieldsFilled = true;
 
     if (pw1 !== pw2) {
       allFieldsFilled = false;
+    }
+
+    if(!isPasswordValid){
+      allFieldsFilled = false
     }
 
     submitBtn.disabled = !allFieldsFilled;
