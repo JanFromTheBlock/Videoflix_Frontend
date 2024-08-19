@@ -98,6 +98,8 @@ export class RegisterComponent {
     const pw2Input = document.getElementById('password2') as HTMLInputElement;
     let pw2 = pw2Input.value;
 
+    document.getElementById('register-requirements')?.classList.remove('pw-requirements-red');
+
     const passwordInput: any = document.getElementById('password1');
     const passwordValue = passwordInput.value.trim();
     const passwordRegex = /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).{8,}$/;
@@ -112,7 +114,8 @@ export class RegisterComponent {
     });
 
     if(!isPasswordValid){
-      allFieldsFilled = false
+      allFieldsFilled = false;
+      document.getElementById('register-requirements')?.classList.add('pw-requirements-red');
     }
 
     submitBtn.disabled = !allFieldsFilled;

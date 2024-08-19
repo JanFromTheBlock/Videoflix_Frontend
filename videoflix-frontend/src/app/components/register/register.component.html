@@ -52,6 +52,13 @@
         <button [ngClass]="{'button-disabled': buttondisabled, 'button-enabled': !buttondisabled}"  id="button-register" disabled>Register</button>
       </div>
     </form>
+    <div id="register-requirements" class="pw-requirements">Password requirements:
+      <li>Minimum 8 characters</li>
+      <li>At least 1 uppercase letter</li>
+      <li>At least 1 lowercase letter</li>
+      <li>At least 1 number</li>
+      <li>At least 1 special character</li>
+       </div>
     <div *ngIf="usernameError" class="error-message">{{ usernameError }}</div>
     <div *ngIf="emailError" class="error-message">{{ emailError }}</div>
   </div>

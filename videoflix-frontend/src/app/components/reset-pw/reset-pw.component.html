@@ -3,24 +3,38 @@
     <h1>Set new Password</h1>
     <form id="SetNewPwForm" (submit)="setNewPW()" >
       <input type="mail" id="email_pw" name="email" value="{{ email }}" />
-      <input
+      <div class="passwords">
+        <input
+        (keyup)="validateResetForm()"
+          [type]="show1 ? 'text' : 'password'"
+          id="new-pw1"
+          name="new_pw1"
+          placeholder="Enter your password"
+        />
+        <img src="../../../assets/img/auge.png" (click)="showPassword(1)">
+      </div>
+      <div class="passwords">
+        <input
       (keyup)="validateResetForm()"
-        type="password"
-        id="new-pw1"
-        name="new_pw1"
-        placeholder="Enter your password"
-      />
-      <input
-      (keyup)="validateResetForm()"
-        type="password"
+        [type]="show2 ? 'text' : 'password'"
         id="new-pw2"
         name="new_pw2"
         placeholder="Repeat Your name"
       />
+      <img src="../../../assets/img/auge.png" (click)="showPassword(2)">
+      </div>
       <div class="button-div">
         <button [ngClass]="{'button-disabled': buttondisabled, 'button-enabled': !buttondisabled}" id="submitNewPw">Reset Password</button>
       </div>
     </form>
+    <div id="reset-pw-requirements" class="pw-requirements">Password requirements:
+      <li>Minimum 8 characters</li>
+      <li>At least 1 uppercase letter</li>
+      <li>At least 1 lowercase letter</li>
+      <li>At least 1 number</li>
+      <li>At least 1 special character</li>
+       </div>
     <div *ngIf="pwResetError" class="error-message">Something went wrong. Please try again.</div>
+
   </div>
 </section>

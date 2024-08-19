@@ -16,6 +16,8 @@ export class ResetPwComponent {
   email: string | null = '';
   buttondisabled: boolean = true;
   pwResetError: boolean = false;
+  show1: boolean = false;
+  show2: boolean = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) {
     this.getMailFromUrl();
@@ -66,6 +68,7 @@ export class ResetPwComponent {
     let pw1 = pw1Input.value;
     const pw2Input = document.getElementById('new-pw2') as HTMLInputElement;
     let pw2 = pw2Input.value;
+    document.getElementById('reset-pw-requirements')?.classList.remove('pw-requirements-red');
 
     const passwordInput: any = document.getElementById('new-pw1');
     const passwordValue = passwordInput.value.trim();
@@ -80,9 +83,19 @@ export class ResetPwComponent {
 
     if(!isPasswordValid){
       allFieldsFilled = false
+      document.getElementById('reset-pw-requirements')?.classList.add('pw-requirements-red');
     }
 
     submitBtn.disabled = !allFieldsFilled;
     this.buttondisabled = !allFieldsFilled;
+  }
+
+  showPassword(passwordNumber: any) {
+    if (passwordNumber == 1) {
+      this.show1 = !this.show1;
+    }
+    if (passwordNumber == 2) {
+      this.show2 = !this.show2;
+    }
   }
 }
