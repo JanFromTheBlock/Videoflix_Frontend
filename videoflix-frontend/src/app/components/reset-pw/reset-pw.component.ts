@@ -55,7 +55,7 @@ export class ResetPwComponent {
       email: email.value,
       pw: pw1.value,
     };
-    return lastValueFrom(this.http.post(url, body));
+    return await lastValueFrom(this.http.post(url, body));
   }
 
   navigateToSucces() {
