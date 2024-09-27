@@ -30,7 +30,10 @@ export class AuthService {
       "email": email,
       "password": password,
     };
-    return lastValueFrom(this.http.post(url, body));
+    const headers = {
+      'Content-Type': 'application/json'
+    }
+    return lastValueFrom(this.http.post(url, body, { headers }));
   }
 
 }
