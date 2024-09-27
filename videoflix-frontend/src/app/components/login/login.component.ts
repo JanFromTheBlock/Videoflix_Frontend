@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
@@ -20,7 +20,7 @@ export class LoginComponent implements AfterViewInit {
   buttondisabled: boolean = true;
 
 
-  constructor(private as: AuthService, private router: Router) {
+  constructor(private as: AuthService, private router: Router, private cdRef: ChangeDetectorRef) {
     if (localStorage.getItem('LoggedIn') === 'true') {
       this.navigateToMainPage()
     }
@@ -28,6 +28,7 @@ export class LoginComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.RememberLoginData();
+    this.cdRef.detectChanges();
   }
 
   RememberLoginData() {
