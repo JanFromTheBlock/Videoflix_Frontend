@@ -16,6 +16,8 @@ export class VideoplayerComponent {
   videoIdFromUrl: string | null = '';
   videoAvailable: boolean = true;
   baseUrl = environment.baseUrl;
+  showDropdown: boolean = false;
+  videoQuality: any = 'medium';
   video: any = {
     create_at: '',
     description: '',
@@ -28,9 +30,10 @@ export class VideoplayerComponent {
 
   constructor(private route: ActivatedRoute, private http: HttpClient){}
 
-  ngOnInit(){
+  async ngOnInit(){
     this.getIdFromUrl();
-    this.getVideoToPlay();
+    await this.getVideoToPlay();
+    this.getNewVideoSrc('720')
   }
 
   getIdFromUrl(){
@@ -52,5 +55,36 @@ export class VideoplayerComponent {
       }
       console.error('Error fetching videos:', error);
     }
+  }
+
+  toggleDropdown(){
+    this.showDropdown = !this.showDropdown;
+  }
+
+  closeDropdown(){
+    this.showDropdown = false;
+  }
+
+  dontClose(event: MouseEvent){
+    event.stopPropagation();
+  }
+
+  changeVideoQuality(quality: string, resolution: any){
+    this.toggleDropdown();
+    this.videoQuality = quality
+    console.log(this.videoQuality);
+    this.getNewVideoSrc(resolution);
+  }
+
+  getNewVideoSrc(resolution: string){
+    let source = this.video.video_file;
+    console.log(source);
+
+    let parts: any = source?.split('.', 2);
+    let newSource = this.baseUrl + parts[0] + '_' + resolution + 'p.' + parts[1];
+    console.log(newSource);
+    document.getElementById('video')?.setAttribute('src', newSource);
+
+
   }
 }

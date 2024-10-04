@@ -1,4 +1,16 @@
-<section>
-  <video *ngIf="videoAvailable" controls preload="auto" src="{{baseUrl}}{{video.video_file}}"></video>
+<section (click)="closeDropdown()">
+  <div class="dropdown" (click)="dontClose($event)">
+    <div class="static">
+      video quality: {{videoQuality}}
+      <button (click)="toggleDropdown()" class="dropbtn button-enabled">Change</button>
+    </div>
+    <div [ngClass]="{'show': showDropdown}" id="video-dropdown" class="dropdown-content">
+      <div (click)="changeVideoQuality('low', '480')">low</div>
+      <div (click)="changeVideoQuality('medium', '720')">medium</div>
+      <div (click)="changeVideoQuality('high', '1080')">high</div>
+    </div>
+  </div>
+  <video id="video" *ngIf="videoAvailable" controls preload="auto"></video>
   <div *ngIf="!videoAvailable">The requested video is not available</div>
+
 </section>
