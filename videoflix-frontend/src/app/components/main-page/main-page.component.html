@@ -9,8 +9,13 @@
           <h2>{{genre}}</h2>
           <div class="videos">
             @for (video of filterVideos(genre); track $index) {
-              <div class="thumbnail" style="background-image: url({{baseUrl}}{{video.thumbnail}});" [routerLink]="['/video/' + video.id]" routerLinkActive="router-link-active" >
-                <span>{{video.title}}</span>
+              <div class="video" [routerLink]="['/video/' + video.id]" routerLinkActive="router-link-active">
+                <div class="thumbnail" style="background-image: url({{baseUrl}}{{video.thumbnail}});">
+                </div>
+                <div id="information">
+                  <span id="title">{{video.title}}</span>
+                  <span id="description">{{video.description}}</span>
+                </div>
               </div>
             }
           </div>

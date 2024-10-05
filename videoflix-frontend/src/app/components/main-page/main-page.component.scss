@@ -76,3 +76,37 @@ section {
     margin-bottom: 8px;
   }
 }
+
+#title{
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  padding: 4px 8px;
+}
+
+#description{
+  font-size: 10px;
+  font-weight: 400;
+  color: red;
+  padding: 2px 4px;
+}
+
+#information{
+  display: none;
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  flex-direction: column;
+  width: 215px;
+  height: 122px;
+  margin-top: -122px;
+}
+
+.video{
+  &:hover{
+    cursor: pointer;
+
+    #information{
+      display: flex !important;
+    }
+  }
+}
