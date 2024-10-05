@@ -89,11 +89,12 @@ section {
   font-weight: 400;
   color: red;
   padding: 2px 4px;
+  white-space: break-spaces;
 }
 
 #information{
   display: none;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.8);
   position: absolute;
   flex-direction: column;
   width: 215px;
