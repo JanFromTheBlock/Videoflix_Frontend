@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
@@ -8,7 +9,7 @@ import { lastValueFrom } from 'rxjs';
 @Component({
   selector: 'app-reset-pw',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './reset-pw.component.html',
   styleUrl: './reset-pw.component.scss',
 })

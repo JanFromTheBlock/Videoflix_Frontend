@@ -1,8 +1,8 @@
 <section class="background-logged-out">
   <div class="forms">
     <h1>Set new Password</h1>
-    <form id="SetNewPwForm" (submit)="setNewPW()" >
-      <input type="mail" id="email_pw" name="email" value="{{ email }}" />
+    <form id="SetNewPwForm" (ngSubmit)="setNewPW()" #resetForm="ngForm">
+      <input type="email" id="email_pw" name="email" value="{{ email }}" />
       <div class="passwords">
         <input
         (keyup)="validateResetForm()"
@@ -24,7 +24,7 @@
       <img src="../../../assets/img/auge.png" (click)="showPassword(2)">
       </div>
       <div class="button-div">
-        <button [ngClass]="{'button-disabled': buttondisabled, 'button-enabled': !buttondisabled}" id="submitNewPw">Reset Password</button>
+        <button [ngClass]="{'button-disabled': buttondisabled, 'button-enabled': !buttondisabled}" id="submitNewPw" type="submit">Reset Password</button>
       </div>
     </form>
     <div id="reset-pw-requirements" class="pw-requirements">Password requirements:
