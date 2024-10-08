@@ -81,6 +81,8 @@ export class LoginComponent implements AfterViewInit {
     } catch (e: any) {
       if (e.status === 400) {
         this.combiError = "The combination of username and password is not correct";
+      } else if (e.status === 403 && e.error?.detail === 'Account is not activated. Please check your email.') {
+        this.combiError = "Your account is not yet activated. Please check your email for the activation link.";
       } else {
         this.serverError =
           'An unexpected error occurred. Please try again later.';
