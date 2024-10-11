@@ -21,6 +21,10 @@ export class ForgotPasswordComponent {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  /**
+   * This function triggers the Registration, the Navigation to the next page and error handling
+   *
+   */
   registerUser(){
       this.Registration().then(response => {
         console.log("Email sent successfully.");
@@ -36,10 +40,19 @@ export class ForgotPasswordComponent {
       });
   }
 
+  /**
+   * This function navigates to the activate-mail page
+   *
+   */
   navigateToActivatePw(){
     this.router.navigate(['/activate-new-pw']);
   }
 
+  /**
+   * This function sends the Registratio-request to the backend
+   *
+   * @returns - returns the response from the backend
+   */
   Registration(){
     const url = environment.baseUrl + '/reset_pw/'
     const body = {
@@ -53,8 +66,11 @@ export class ForgotPasswordComponent {
   );
 }
 
+/**
+ * This function validates the Mail-adress and disables/enables the button
+ *
+ */
   validateMailForm(){
-
     const submitBtn: any = document.getElementById('submitBtnResetPw');
     const emailInput = document.getElementById('resetmail') as HTMLInputElement;
     let email = emailInput.value;
@@ -66,6 +82,12 @@ export class ForgotPasswordComponent {
     this.buttondisabled = !allFieldsFilled;
   }
 
+  /**
+   * This function checks whether the mail adress pattern is adhered to
+   *
+   * @param {string} email - This is the mail-adress that is checked
+   * @returns the result of the check
+   */
   isValidEmail(email: any) {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailPattern.test(email)

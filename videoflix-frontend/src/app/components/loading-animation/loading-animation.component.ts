@@ -15,12 +15,20 @@ export class LoadingAnimationComponent {
   public subscription: Subscription | undefined;
   constructor(private loader: LoaderService){ }
 
+  /**
+   * This function subscribes the loader Service and shows the loader animation if something is loading
+   *
+   */
   ngOnInit(){
     this.subscription = this.loader.loaderState.subscribe((state: LoaderState) => {
       this.show = state.show
     })
   }
 
+  /**
+   * This function ends the subscription of the loader sesrvice, when the app is closed
+   *
+   */
   ngOnDestroy(){
     if (this.subscription) {
       this.subscription.unsubscribe()

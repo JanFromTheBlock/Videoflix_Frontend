@@ -11,6 +11,13 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  /**
+   * This function sends the backend request to log in the user
+   *
+   * @param {string} username - username for the login
+   * @param {string} password - password for the login
+   * @returns - the response of the backend
+   */
   public loginWithUsernameAndPassword(username: string, password: string) {
     const url = environment.baseUrl + '/login/';
     const body = {
@@ -18,11 +25,17 @@ export class AuthService {
       "password": password,
     };
     let Response = lastValueFrom(this.http.post(url, body));
-    console.log(Response);
     return Response;
-
   }
 
+  /**
+   * This function sends the backend request to register the user
+   *
+   * @param {string} username - username for the register
+   * @param {string} email - email for the register
+   * @param {string} password - password for the register
+   * @returns the response of the backend
+   */
   async ResponseRegister(username: string, email: string, password: string){
     const url = environment.baseUrl + '/register/';
     const body = {

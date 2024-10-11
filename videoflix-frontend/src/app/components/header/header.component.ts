@@ -18,12 +18,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   constructor(private as: AuthService, private router: Router) {}
 
+  /**
+   * This function unsubscribes the Router event, when the page is closed
+   *
+   */
   ngOnDestroy() {
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
   }
 
+  /**
+   * This function subsribes the router event, to update the buttons of the header, depending of the visited page
+   *
+   */
   ngOnInit() {
     this.subscription = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -32,6 +40,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * This function switches the buttons of the header, depending of the visited page.
+   *
+   * @param {string} url - url of the current visited page
+   */
   updateButtons(url: string) {
     if (url === '/main' || url.match(/^\/video\/\d+$/)) {
       this.showLoginButton = false;
@@ -45,18 +58,34 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * This function navigates to Login
+   *
+   */
   navigateToLogin() {
     this.router.navigate(['/login']);
   }
 
+  /**
+   * This function navigates to the main page.
+   *
+   */
   navigateToMain() {
     this.router.navigate(['/main']);
   }
 
+  /**
+   * This function navigates to the base page
+   *
+   */
   navigateToBase(){
     this.router.navigate(['/']);
   }
 
+  /**
+   * This function navigates, depending of the login status, to the main or base page
+   *
+   */
   goHome(){
     if (localStorage.getItem('LoggedIn') === 'true') {
       this.navigateToMain();
@@ -65,6 +94,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * This function logouts the user and navigates to the login page
+   *
+   */
   logOut(){
     localStorage.removeItem('token');
     localStorage.setItem('LoggedIn', 'false');

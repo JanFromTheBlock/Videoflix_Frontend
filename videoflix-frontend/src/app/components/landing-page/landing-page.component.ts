@@ -17,10 +17,18 @@ export class LandingPageComponent {
   constructor(private router: Router, private http: HttpClient) {
    }
 
+  /**
+   * This function navigates to Registration
+   *
+   */
   navigateToRegistration(){
     this.router.navigate(['/register'])
   }
 
+  /**
+   * This function navigates to login page
+   *
+   */
   navigateToLogin(){
     this.router.navigate(['/login'])
   }

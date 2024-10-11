@@ -22,6 +22,10 @@ export class MainPageComponent {
     this.getVideos();
    }
 
+   /**
+    * This function tryes to get alle the videos from the backend
+    *
+    */
   async getVideos(){
     const url = this.baseUrl + '/videos/';
     try {
@@ -32,6 +36,12 @@ export class MainPageComponent {
     }
   }
 
+  /**
+   * This function divides the videos from the backend into genres
+   *
+   * @param {any} genre - the genre to filter the videos for
+   * @returns - an array with all the videos of the genre
+   */
   filterVideos(genre: any){
     let filteredVideos: any = [];
     if (genre) {

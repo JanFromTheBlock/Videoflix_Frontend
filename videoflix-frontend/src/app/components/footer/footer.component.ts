@@ -14,10 +14,19 @@ export class FooterComponent {
 
   }
 
+
+  /**
+   * This function navigates to privacy policy
+   *
+   */
   navigateToPrivacy(){
     this.router.navigate(['/privacy-policy']);
   }
 
+  /**
+   * This function navigates to Imprint
+   *
+   */
   navigateToImprint(){
     this.router.navigate(['/imprint']);
   }
