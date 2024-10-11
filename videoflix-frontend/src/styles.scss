@@ -129,3 +129,26 @@ a{
     color: darkred;
    }
 }
+
+@media(max-width: 550px){
+  .forms{
+    width: 100%;
+    gap: 24px;
+    border-radius: 0;
+    border: none;
+    max-width: none;
+    text-align: center;
+  }
+
+  input{
+    width: 230px;
+  }
+
+  .pw-requirements{
+    text-align: left;
+  }
+
+  h1{
+    font-size: 24px;
+  }
+}
