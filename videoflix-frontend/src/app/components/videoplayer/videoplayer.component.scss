@@ -3,7 +3,6 @@ section{
   flex-direction: column;
   padding-top: 144px;
   height: calc(100vh - 144px);
-  align-items: baseline !important;
   background-color: #593131;
 
 }
@@ -17,6 +16,8 @@ video{
 .dropdown {
   position: relative;
   display: inline-block;
+  width: 100%;
+  max-width: 1000px;
 }
 
 .dropdown-content {
@@ -48,6 +49,17 @@ video{
   color: red;
   background: black;
   margin: 4px 2px;
+  max-width: 281px;
+}
+
+.video-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#no-color{
+  flex: 1;
 }
 
 

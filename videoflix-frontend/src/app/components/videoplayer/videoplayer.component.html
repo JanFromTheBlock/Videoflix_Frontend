@@ -4,12 +4,15 @@
       video quality: {{videoQuality}}
       <button (click)="toggleDropdown()" class="dropbtn button-enabled">Change</button>
     </div>
+    <div id="no-color"></div>
     <div [ngClass]="{'show': showDropdown}" id="video-dropdown" class="dropdown-content">
       <div (click)="changeVideoQuality('low', '480')">low</div>
       <div (click)="changeVideoQuality('medium', '720')">medium</div>
       <div (click)="changeVideoQuality('high', '1080')">high</div>
     </div>
   </div>
-  <video id="video" *ngIf="videoAvailable" controls preload="auto"></video>
-  <div *ngIf="!videoAvailable">The requested video is not available</div>
+  <div class="video-container">
+    <video id="video" *ngIf="videoAvailable" controls preload="auto"></video>
+    <div *ngIf="!videoAvailable">The requested video is not available</div>
+  </div>
 </section>
