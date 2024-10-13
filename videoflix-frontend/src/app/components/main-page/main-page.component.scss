@@ -111,3 +111,11 @@ section {
     }
   }
 }
+
+@media (max-width: 550px) {
+  .genre{
+    margin-left: 24px;
+    margin-right: 24px;
+    max-width: calc(100% - 92px);
+  }
+}

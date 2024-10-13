@@ -1,4 +1,4 @@
-section{
+section {
   padding: 48px 96px;
   display: flex;
   justify-content: space-between;
@@ -7,15 +7,20 @@ section{
   width: calc(100% - 192px);
   background-color: rgba($color: #000000, $alpha: 0.7);
 
-  img{
+  img {
     height: 32px;
     width: auto;
 
-
-    &:hover{
+    &:hover {
       filter: drop-shadow(0 0 0.75rem crimson);
       cursor: pointer;
-
     }
+  }
+}
+
+@media (max-width: 550px) {
+  section {
+    padding: 24px 48px;
+    width: calc(100% - 96px);
   }
 }
