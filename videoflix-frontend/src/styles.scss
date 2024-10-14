@@ -156,3 +156,18 @@ a{
     background-image: none;
   }
 }
+
+@media(max-height: 700px){
+  .forms{
+    gap: 8px;
+    padding: 22px 28px;
+
+    form{
+      gap: 8px;
+    }
+  }
+
+  h1{
+    font-size: 32px;
+  }
+}

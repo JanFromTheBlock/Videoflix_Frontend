@@ -119,3 +119,10 @@ section {
     max-width: calc(100% - 92px);
   }
 }
+
+@media (max-height: 650px) {
+  section{
+    padding-top: 24px;
+    height: calc(100vh - 24px);
+  }
+}

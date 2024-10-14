@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 export class HeaderComponent implements OnInit, OnDestroy {
   showLogoutButton: boolean = false;
   showLoginButton: boolean = false;
+  showDropdown: boolean = false;
   private subscription: Subscription | undefined;
 
   constructor(private as: AuthService, private router: Router) {}
@@ -82,6 +83,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.router.navigate(['/']);
   }
 
+   /**
+   * This function navigates to privacy policy
+   *
+   */
+   navigateToPrivacy() {
+    this.router.navigate(['/privacy-policy']);
+  }
+
+  /**
+   * This function navigates to Imprint
+   *
+   */
+  navigateToImprint() {
+    this.router.navigate(['/imprint']);
+  }
+
   /**
    * This function navigates, depending of the login status, to the main or base page
    *
@@ -102,5 +119,30 @@ export class HeaderComponent implements OnInit, OnDestroy {
     localStorage.removeItem('token');
     localStorage.setItem('LoggedIn', 'false');
     this.navigateToLogin();
+  }
+
+  /**
+   * This function toggles the dropdown menu of the resolution
+   *
+   */
+  toggleDropdown(){
+    this.showDropdown = !this.showDropdown;
+  }
+
+  /**
+   * This function closes the dropdown menu
+   *
+   */
+  closeDropdown(){
+    this.showDropdown = false;
+  }
+
+  /**
+   * This function prevents the dropdown to get closed
+   *
+   * @param {MouseEvent} event - the event that would be triggered bei the mouse click
+   */
+  dontClose(event: MouseEvent){
+    event.stopPropagation();
   }
 }

@@ -62,4 +62,21 @@ video{
   flex: 1;
 }
 
+@media (max-height: 650px) {
+  section {
+    padding-top: 0;
+    height: 100vh;
+  }
+
+  video{
+    height: 100%;
+    width: auto;
+    max-height: 300px;
+  }
+
+  .static{
+    margin-left: 24px;
+  }
+}
+
 

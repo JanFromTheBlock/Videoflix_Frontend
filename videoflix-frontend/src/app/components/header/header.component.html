@@ -1,4 +1,4 @@
-<section>
+<section class="menu-normal">
   <div (click)="goHome()" id="logo">
     <img src="../../../assets/img/logo.png">
   </div>
@@ -7,3 +7,16 @@
     <button (click)="logOut()" *ngIf="showLogoutButton" class="button-enabled">Logout</button>
   </div>
 </section>
+<section (click)="dontClose($event)" class="menu-small">
+  <div (click)="toggleDropdown()">
+    <img src="../../../assets/img/menu.png">
+  </div>
+  <div [ngClass]="{'show': showDropdown}" id="dropdowns">
+    <div><a (click)="goHome(); closeDropdown()" id="logo">Home</a></div>
+    <div><a (click)="navigateToPrivacy(); closeDropdown()">Privacy policy</a></div>
+    <div><a (click)="navigateToImprint(); closeDropdown()">Imprint</a></div>
+    <div><a (click)="logOut(); closeDropdown()" *ngIf="showLogoutButton">Logout</a></div>
+    <div><a *ngIf="showLoginButton" (click)="navigateToLogin(); closeDropdown()">Login</a></div>
+  </div>
+</section>
+<div [ngClass]="{'show': showDropdown}" id="hidden-container" (click)="closeDropdown()"></div>

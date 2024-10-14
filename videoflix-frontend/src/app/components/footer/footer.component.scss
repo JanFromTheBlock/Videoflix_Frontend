@@ -12,3 +12,9 @@ section{
     text-decoration: none;
   }
 }
+
+@media (max-height: 650px) {
+  section {
+    display: none;
+  }
+}
