@@ -26,6 +26,7 @@
 }
 
 .menu-small {
+  display: none;
   position: absolute;
   flex-direction: column;
   top: 20px;
@@ -67,5 +68,9 @@
 @media (max-height: 650px) {
   .menu-normal {
     display: none;
+  }
+
+  .menu-small{
+    display: flex;
   }
 }

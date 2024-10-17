@@ -4,6 +4,8 @@ section {
   height: calc(100vh - 144px);
   justify-content: flex-start;
   padding-top: 144px;
+  padding-bottom: 72px;
+  overflow-x: auto;
 }
 
 .genre {
@@ -58,6 +60,7 @@ section {
   width: 213px;
   height: 120px;
   background-size: cover;
+  background-repeat: no-repeat;
   color: white;
   font-weight: 600;
   display: flex;
@@ -97,7 +100,7 @@ section {
   background-color: rgba(0,0,0,0.8);
   position: absolute;
   flex-direction: column;
-  width: 215px;
+  width: 216px;
   height: 122px;
   margin-top: -122px;
 }
