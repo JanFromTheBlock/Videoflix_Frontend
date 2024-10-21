@@ -102,7 +102,8 @@ section {
   flex-direction: column;
   width: 216px;
   height: 122px;
-  margin-top: -122px;
+  top: 0;
+  left: 0;
 }
 
 .video{
@@ -113,6 +114,10 @@ section {
       display: flex !important;
     }
   }
+}
+
+.video{
+  position: relative;
 }
 
 @media (max-width: 550px) {
