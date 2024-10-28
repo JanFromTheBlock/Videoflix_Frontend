@@ -1,28 +1,10 @@
 .forms{
   gap: 0px;
-  max-height: calc(100% - 300px);
+  max-height: calc(100% - 400px);
   overflow-y: scroll;
 }
 
-#forms::-webkit-scrollbar {
-  width: 40px;
-}
 
-#forms::-webkit-scrollbar-thumb {
-  background-color: #a8a8a8;
-  border: 16px solid transparent;
-  border-radius: 20px;
-  background-clip: content-box;
-  height: 80px;
-
-  &:hover{
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-}
-
-#forms::-webkit-scrollbar-track {
-  background-color: transparent;
-}
 
 @media (max-height: 650px) {
   .forms{

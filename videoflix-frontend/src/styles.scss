@@ -105,13 +105,15 @@ h1{
 .forms{
     display: flex;
     flex-direction: column;
-    max-width: 420px;
+    max-width: 450px;
     align-items: center;
     gap: 32px;
     background: white;
     padding: 43px 56px;
     border-radius: 48px;
     border: 3px solid black;
+    max-height: calc(100% - 400px);
+    overflow-y: auto;
 
       form{
         display: flex;
@@ -161,6 +163,7 @@ a{
   .forms{
     gap: 8px;
     padding: 22px 28px;
+    max-height: unset;
 
     form{
       gap: 8px;
@@ -170,4 +173,24 @@ a{
   h1{
     font-size: 32px;
   }
+}
+
+.forms::-webkit-scrollbar {
+  width: 40px;
+}
+
+.forms::-webkit-scrollbar-thumb {
+  background-color: #a8a8a8;
+  border: 16px solid transparent;
+  border-radius: 20px;
+  background-clip: content-box;
+  height: 80px;
+
+  &:hover{
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.forms::-webkit-scrollbar-track {
+  background-color: transparent;
 }
