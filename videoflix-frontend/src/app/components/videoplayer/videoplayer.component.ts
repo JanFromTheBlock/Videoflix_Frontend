@@ -111,10 +111,8 @@ export class VideoplayerComponent {
    */
   getNewVideoSrc(resolution: string){
     let source = this.video.video_file;
-    console.log(source);
     let parts: any = source?.split('.', 2);
     let newSource = this.baseUrl + parts[0] + '_' + resolution + 'p.' + parts[1];
-    console.log(newSource);
     document.getElementById('video')?.setAttribute('src', newSource);
 
 

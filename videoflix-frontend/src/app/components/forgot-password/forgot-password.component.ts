@@ -27,7 +27,6 @@ export class ForgotPasswordComponent {
    */
   registerUser(){
       this.Registration().then(response => {
-        console.log("Email sent successfully.");
         this.navigateToActivatePw();
       }).catch((e: any) => {
         if (e.status === 404) {

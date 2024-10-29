@@ -30,7 +30,6 @@ export class MainPageComponent {
     const url = this.baseUrl + '/videos/';
     try {
       this.videos = await lastValueFrom(this.http.get(url));
-      console.log(this.videos);
     } catch (error) {
       console.error('Error fetching videos:', error);
     }

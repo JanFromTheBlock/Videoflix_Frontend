@@ -33,7 +33,6 @@ export class ResetPwComponent {
   getMailFromUrl() {
     this.route.paramMap.subscribe((paramMap) => {
       this.email = paramMap.get('mail');
-      console.log('Got ID', this.email);
     });
   }
 
@@ -45,7 +44,6 @@ export class ResetPwComponent {
     try{
       this.pwResetError = false;
       let response = await this.safeNewPW();
-      console.log('Response received', response);
       this.navigateToSucces();
     }catch(e: any){
       console.error('Error', e);
