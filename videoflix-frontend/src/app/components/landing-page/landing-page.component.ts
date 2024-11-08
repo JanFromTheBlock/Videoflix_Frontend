@@ -15,7 +15,18 @@ export class LandingPageComponent {
   emailForRegistration: string = '';
 
   constructor(private router: Router, private http: HttpClient) {
+    if (localStorage.getItem('LoggedIn') === 'true') {
+      this.navigateToMainPage();
+    }
    }
+
+   /**
+   * This function navigates to main page
+   *
+   */
+   navigateToMainPage() {
+    this.router.navigate(['/main']);
+  }
 
   /**
    * This function navigates to Registration
