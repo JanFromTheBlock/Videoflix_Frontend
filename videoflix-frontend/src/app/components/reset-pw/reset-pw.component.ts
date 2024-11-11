@@ -59,7 +59,7 @@ export class ResetPwComponent {
   async safeNewPW(){
     const email: any = document.getElementById('email_pw');
     const pw1: any = document.getElementById('new-pw1');
-    const url = 'http://127.0.0.1:8000/set_new_pw/';
+    const url = 'https://backend-videoflix.janborcholt.de/set_new_pw/';
     const body = {
       email: email.value,
       pw: pw1.value,
