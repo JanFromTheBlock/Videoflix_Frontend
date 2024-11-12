@@ -1,7 +1,5 @@
 <section>
   @if (videos.length >= 1) {
-    <h1>Videos</h1>
-
     @for (genre of genres; track $index) {
 
       @if (filterVideos(genre).length >= 1) {

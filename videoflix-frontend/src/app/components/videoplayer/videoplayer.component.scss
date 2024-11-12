@@ -4,7 +4,7 @@ section{
   padding-top: 144px;
   padding-bottom: 100px;
   height: calc(100vh - 144px);
-  background-color: #593131;
+  background: linear-gradient(45deg, #2E3EDF, black);
 
 }
 
@@ -12,6 +12,10 @@ video{
   width: 100%;
   height: auto;
   max-width: 1000px;
+}
+
+button{
+  margin-left: 4px;
 }
 
 .dropdown {
@@ -47,10 +51,9 @@ video{
 }
 
 .static{
-  color: red;
-  background: black;
+  color: white;
   margin: 4px 2px;
-  max-width: 281px;
+  max-width: 290px;
 }
 
 .video-container{

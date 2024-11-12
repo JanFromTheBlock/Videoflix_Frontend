@@ -15,7 +15,7 @@ body{
 //}
 
 .background-logged-out {
-  background-image: url("./assets/img/background_cinema.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.44), rgba(0, 0, 0, 0.8)), url("./assets/img/background_logged_out.jpeg");
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
@@ -53,7 +53,7 @@ button{
 }
 
 input{
-  border: 1px solid red;
+  border: 1px solid #2E3EDF;
   border-radius: 6px;
   padding: 12px 24px;
   width: 358px;
@@ -70,7 +70,7 @@ input{
 
     img{
       width: 22px;
-      margin-left: -25px;
+      margin-left: -30px;
       opacity: 0.7;
 
       &:hover{
@@ -85,7 +85,7 @@ input{
 }
 
 .pw-requirements-red{
-  color: red;
+  color: #2E3EDF;
 }
 
 section{
@@ -99,7 +99,7 @@ h1{
   font-weight: 700;
   margin: 0;
   padding: 0;
-  color: red;
+  color: #2E3EDF;
 }
 
 .forms{
@@ -123,13 +123,19 @@ h1{
 }
 
 a{
-  color: red;
+  color: #2E3EDF;
 
    &:hover{
     cursor: pointer;
     text-decoration: underline;
-    color: darkred;
+    color: #0b1368;
    }
+}
+
+@media(min-width: 1000px){
+  .forms{
+    max-width: 800px;
+  }
 }
 
 @media(max-width: 550px){
