@@ -16,8 +16,8 @@ section {
   margin-right: 96px;
   margin-bottom: 48px;
   gap: 16px;
-  width: 100%;
-  max-width: calc(100% - 192px);
+  width: calc(100% - 192px);
+  max-width: 2000px;
 
   h2 {
     font-size: 22px;
