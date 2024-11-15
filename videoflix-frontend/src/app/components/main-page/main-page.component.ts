@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Renderer2, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
@@ -13,12 +13,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss'
 })
-export class MainPageComponent {
+export class MainPageComponent implements AfterViewInit{
+  @ViewChild('thumbnailBig', {static: false}) thumbnailBig!: ElementRef<HTMLImageElement>;
   videos: any = [];
   genres = ["animals", "mountains", "sea"];
   baseUrl = environment.baseUrl;
+  selectedVideo: any = null;
 
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(private router: Router, private http: HttpClient, private renderer: Renderer2) {   }
+
+   ngAfterViewInit(){
     this.getVideos();
    }
 
@@ -30,9 +34,18 @@ export class MainPageComponent {
     const url = this.baseUrl + '/videos/';
     try {
       this.videos = await lastValueFrom(this.http.get(url));
+      if (this.videos.length > 0) {
+        setTimeout(() => this.setRandomThumbnail(), 10);
+      }
     } catch (error) {
       console.error('Error fetching videos:', error);
     }
+  }
+
+  setRandomThumbnail() {
+    this.selectedVideo = this.videos[Math.floor(Math.random() * this.videos.length)];
+    const thumbnailUrl = `${this.baseUrl}${this.selectedVideo.thumbnail}`;
+    this.thumbnailBig.nativeElement.src = thumbnailUrl;
   }
 
   /**

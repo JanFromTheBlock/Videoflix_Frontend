@@ -118,6 +118,10 @@ section {
   }
 }
 
+#thumbnail-container{
+  display: none;
+}
+
 @media (min-width: 1500px) {
   .thumbnail {
     width: 426px;
@@ -140,12 +144,62 @@ section {
   .genre h2{
     font-size: 44px;
   }
-}
 
-@media (min-width: 1500px) {
   #information {
     width: 432px;
     height: 244px;
+  }
+
+  #title-big{
+    font-size: 100px !important;
+  }
+
+  #description-big{
+    font-size: 50px !important;
+  }
+}
+
+@media (min-width: 1000px) {
+  #thumbnail-container{
+    position: relative;
+    display: inline-block;
+    width: calc(100% - 192px);
+    max-width: 2000px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  #thumbnail-big{
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  #overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+
+    #title-big{
+      font-size: 50px;
+    }
+
+    #description-big{
+      font-size: 25px;
+    }
   }
 }
 

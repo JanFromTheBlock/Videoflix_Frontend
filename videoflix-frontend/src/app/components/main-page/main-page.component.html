@@ -1,5 +1,13 @@
 <section>
   @if (videos.length >= 1) {
+    <div id="thumbnail-container">
+      <img id="thumbnail-big" #thumbnailBig />
+      <div id="overlay">
+        <span id="title-big">{{selectedVideo?.title}}</span>
+        <button [routerLink]="['/video/' + selectedVideo?.id]" routerLinkActive="router-link-active" class="button-enabled">Play</button>
+        <span id="description-big">{{selectedVideo?.description}}</span>
+      </div>
+    </div>
     @for (genre of genres; track $index) {
 
       @if (filterVideos(genre).length >= 1) {
