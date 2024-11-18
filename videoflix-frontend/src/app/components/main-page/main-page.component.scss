@@ -1,6 +1,6 @@
 section {
   flex-direction: column;
-  background: linear-gradient(45deg, #2e3edf, black);
+  background: rgb(20, 20, 20);
   height: calc(100vh - 216px);
   justify-content: flex-start;
   padding-top: 144px;
@@ -50,7 +50,7 @@ section {
 }
 
 .videos::-webkit-scrollbar-track {
-  background-color: rgb(92, 33, 33);
+  background-color: rgb(20, 20, 20);
   border-radius: 0;
 }
 
